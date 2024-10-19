@@ -287,7 +287,7 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                // base case: for n=0, fibonacci value is 0 and for n=1, fibonnaci value is 1
+                // base cases: for n=0, fibonacci value is 0 and for n=1, fibonnaci value is 1
                 if (n <2)
                 {
                     return n;
