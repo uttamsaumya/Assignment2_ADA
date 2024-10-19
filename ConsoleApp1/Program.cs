@@ -68,13 +68,13 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                HashSet<int> all_nums = new HashSet<int>();
+                HashSet<int> all_nums = new HashSet<int>(); // creating a new hashSet containing all numbers in the given range
                 int l = nums.Length;
                 for (int i = 1; i <= l; i++)
                 {
                     all_nums.Add(i);
                 }
-
+                // Used hashSet for identifying the missing number in O(1) time complexity
                 for (int i = 0; i < l; i++)
                 {
                     if (all_nums.Contains(nums[i]))
@@ -104,7 +104,7 @@ namespace Assignment_2
                 {
                     if (nums[i]%2 == 1)
                     {
-                        if ((nums[j] % 2 == 0) && (i < j))
+                        if ((nums[j] % 2 == 0) && (i < j)) // code for swaping if any even number is found to the right of odd one
                         {
                             int temp = nums[i];
                             nums[i] = nums[j];
@@ -141,13 +141,13 @@ namespace Assignment_2
                 int l = nums.Length;
                 Hashtable ht = new Hashtable();
 
-                // Populate the hashtable with number values and their indices
+                // Iterating the hashtable with number values and their indices
                 for (int i = 0; i < l; i++)
                 {
                     ht[nums[i]] = i;
                 }
 
-                // Find the pair of indices that add up to the target
+                // Finding the pair of indices that sum up to the target
                 for (int i = 0; i < l; i++)
                 {
                     int complement = target - nums[i];
@@ -205,9 +205,12 @@ namespace Assignment_2
                     return "0";
                 }
 
-                string binary = "";
+                string binary = ""; // creating empty string
+
+                // finding the least significant bit and adding it to the binary string. Repeating the process till the given number is greater than 0
                 while (decimalNumber > 0)
-                {   int remainder = decimalNumber % 2;
+                {   
+                    int remainder = decimalNumber % 2;
                     binary = remainder + binary;
                     decimalNumber /= 2;
                 }
@@ -228,6 +231,8 @@ namespace Assignment_2
             {
                 // Write your code here
                 int l = nums.Length;
+
+                // i am finding the least number by identifying the change in pattern- increasing pattern or decreasing pattern
                 for ( int i = 1; i<l; i++ ) 
                 {
                     if (nums[i] < nums[i-1])
@@ -251,20 +256,21 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                if (x<0)
+                if (x<0) // negative numbers are not palindrome
                 {  
                     return false; 
                 }
                 int newnum = 0;
                 int check = x;
                 
+                // creating a new number by reversing the digits
                 while (x > 0)
                 {
                     
                     newnum =  newnum * 10 + (x % 10);
                     x /= 10;
                 }
-
+                // if original is same to the new number created, its a palindrome.
                 if (check == newnum)
                     return true;
                 return false; // Placeholder
@@ -281,12 +287,13 @@ namespace Assignment_2
             try
             {
                 // Write your code here
+                // base case: for n=0, fibonacci value is 0 and for n=1, fibonnaci value is 1
                 if (n <2)
                 {
                     return n;
                 }
 
-                return Fibonacci(n - 1) + Fibonacci(n - 2);
+                return Fibonacci(n - 1) + Fibonacci(n - 2); // calling the function recursively for rest of the numbers
 
                 //return 0; // Placeholder
             }
